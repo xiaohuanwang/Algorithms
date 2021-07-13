@@ -17,7 +17,7 @@ public class NumberUtil {
      * @author wxh_work@163.com
      * @date 2021-07-13 14:38:09
      */
-    private static boolean isPrime(int number) {
+    public static boolean isPrime(int number) {
         int x = number;
         if (x < 2) {
             return false;
@@ -37,7 +37,7 @@ public class NumberUtil {
      * @author wxh_work@163.com
      * @date 2021-07-13 14:38:38
      */
-    private int[] getNumbers(int a) {
+    public static int[] getNumbers() {
         int[] arr = new int[5000000];
         Random r = new Random();
         for (int i = 0; i < 5000000; ++i) {
