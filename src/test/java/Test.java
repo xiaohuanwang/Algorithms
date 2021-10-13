@@ -1,6 +1,4 @@
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 
 /**
  * @program: Algorithms
@@ -10,13 +8,20 @@ import java.math.RoundingMode;
  **/
 public class Test {
     public static void main(String[] args) {
-        BigDecimal aa = new BigDecimal(3.99);
-        BigDecimal bb = new BigDecimal(3.99);
-    //    System.out.println(bb.subtract(aa));
+        BigDecimal aa = new BigDecimal(3);
+        BigDecimal bb = new BigDecimal(3);
 
-        //  long l = bd.setScale( 0, BigDecimal.ROUND_UP ).longValue(); // 向上取整
-      //  long a = bd.setScale( 0, BigDecimal.ROUND_DOWN ).longValue(); // 向下取整
-    //    System.out.println(aa.setScale(0, RoundingMode.DOWN));
-       System.out.println(bb.subtract(aa.setScale(0, RoundingMode.DOWN),new MathContext(2)));
+        System.out.println(aa.equals(bb));
+
+        BigDecimal cc = new BigDecimal(3);
+        BigDecimal dd = new BigDecimal(3.00);
+
+        System.out.println(cc.equals(dd));
+
+        BigDecimal ee = new BigDecimal("3");
+        BigDecimal ff = new BigDecimal("3.00");
+
+        System.out.println(ee.equals(ff));
+
     }
 }
