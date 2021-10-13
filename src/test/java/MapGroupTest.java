@@ -24,23 +24,14 @@ public class MapGroupTest {
 
     }
 
-/*    public static Map<Integer, List<StockWeightDTO>> assemble(Integer goodsNo, List<ProcurementOrderDO> procurementOrderList) {
-        System.out.println(goodsNo+":::"+procurementOrderList);
-        final Map<Integer, List<StockWeightDTO>> stockWeightMap = new HashMap<>();
-        final Map<Integer, List<ProcurementOrderDO>> procurementOrderGroupByQualityNoMap = procurementOrderList.parallelStream()
-                .collect(Collectors.groupingBy(ProcurementOrderDO::getQualityNo, Collectors.toList()));
-        procurementOrderGroupByQualityNoMap.forEach((qualityNo,qualityNoGroupBy) ->
-                stockWeightMap.put(goodsNo,abc(qualityNo,qualityNoGroupBy)));
-        return stockWeightMap;
-    }*/
 
-    public static List<StockWeightDTO> assemble(List<ProcurementOrderDO> procurementOrderList,final LocalDate startDate,  final LocalDate endDate){
+    public static List<StockWeightDTO> assemble(List<ProcurementOrderDO> procurementOrderList, final LocalDate startDate, final LocalDate endDate) {
         System.out.println(startDate);
         System.out.println(endDate);
         List<StockWeightDTO> stockWeightDTOS = new ArrayList<>();
         final Map<Integer, List<ProcurementOrderDO>> procurementOrderGroupByQualityNoMap = procurementOrderList.parallelStream()
                 .collect(Collectors.groupingBy(ProcurementOrderDO::getQualityNo, Collectors.toList()));
-        procurementOrderGroupByQualityNoMap.forEach((qualityNo,qualityNoGroupBy) -> {
+        procurementOrderGroupByQualityNoMap.forEach((qualityNo, qualityNoGroupBy) -> {
             System.out.println(qualityNo + ":::" + qualityNoGroupBy);
             StockWeightDTO stockWeightDTO = new StockWeightDTO();
             stockWeightDTO.setQualityNo(qualityNo);
