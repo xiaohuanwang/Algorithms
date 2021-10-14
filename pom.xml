@@ -18,10 +18,15 @@
     <name>Algorithms</name>
 
       <dependencies>
-        <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <version>1.16.10</version>
-        </dependency>
+          <dependency>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>1.16.10</version>
+          </dependency>
+          <dependency>
+              <groupId>cn.hutool</groupId>
+              <artifactId>hutool-all</artifactId>
+              <version>5.7.14</version>
+          </dependency>
       </dependencies>
 </project>
