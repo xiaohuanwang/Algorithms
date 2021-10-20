@@ -1,15 +1,10 @@
 package common.util;
 
+import cn.hutool.core.lang.Assert;
 import cn.hutool.core.lang.Pair;
 
 import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.YearMonth;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Objects;
@@ -61,16 +56,23 @@ public final class TimeHelper {
         return pageSize == period.getDays() % pageSize ? 1 : period.getDays() / pageSize + (0 == period.getDays() % pageSize ? 0 : 1);
     }
 
-    public static List<LocalDate> listLocalDateOfTimePageReqByDay(LocalDate startDate, LocalDate endDate, int pageSize, int offset) {
+    public static List listLocalDateOfTimePageReqByDay(LocalDate startDate, LocalDate endDate, int pageSize, int offset) {
         Objects.requireNonNull(startDate, "Arg 'startDate' can not be null");
         Objects.requireNonNull(endDate, "Arg 'endDate' can not be null");
+        Assert.isTrue(pageSize > 0, "Arg 'pageSize' can not be <= 0");
+        Assert.isTrue(offset >= 0, "Arg 'pageSize' can not be < 0");
+        Assert.isTrue(endDate.isAfter(startDate) || endDate.equals(startDate), "Arg 'startDate' can not be after arg 'endDate'");
         LocalDate pageStartDate = startDate.plusDays((long) pageSize * (long) offset);
         pageStartDate = pageStartDate.isBefore(endDate) ? pageStartDate : endDate.plusDays(1L);
         LocalDate pageEndDate = pageStartDate.plusDays((long) (pageSize - 1));
         pageEndDate = pageEndDate.isBefore(endDate) ? pageEndDate : endDate;
-        return (List) Stream.iterate(pageStartDate, (localDate) -> {
-            return localDate.plusDays(1L);
-        }).limit(ChronoUnit.DAYS.between(pageStartDate, pageEndDate.plusDays(1L))).collect(Collectors.toList());
+        if (startDate.equals(endDate)) {
+            return (List) Stream.of(startDate).collect(Collectors.toList());
+        } else {
+            return (List) Stream.iterate(pageStartDate, (localDate) -> {
+                return localDate.plusDays(1L);
+            }).limit(ChronoUnit.DAYS.between(pageStartDate, pageEndDate.plusDays(1L))).collect(Collectors.toList());
+        }
     }
 
     public static void main(String[] args) {

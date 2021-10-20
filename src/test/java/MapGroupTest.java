@@ -18,16 +18,16 @@ public class MapGroupTest {
         procurementOrderGroupByGoodsNoMap.forEach((goodsNo,goodsNoGroupBy) ->
                 stockWeightMap.put(goodsNo,assemble(goodsNoGroupBy,startDate,endDate)));
 
-        stockWeightMap.forEach((a,b) -> {
+       /* stockWeightMap.forEach((a,b) -> {
             System.out.println(a+":::"+b);
-        });
+        });*/
 
     }
 
 
     public static List<StockWeightDTO> assemble(List<ProcurementOrderDO> procurementOrderList, final LocalDate startDate, final LocalDate endDate) {
-        System.out.println(startDate);
-        System.out.println(endDate);
+/*        System.out.println(startDate);
+        System.out.println(endDate);*/
         List<StockWeightDTO> stockWeightDTOS = new ArrayList<>();
         final Map<Integer, List<ProcurementOrderDO>> procurementOrderGroupByQualityNoMap = procurementOrderList.parallelStream()
                 .collect(Collectors.groupingBy(ProcurementOrderDO::getQualityNo, Collectors.toList()));

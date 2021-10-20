@@ -1,3 +1,8 @@
+import common.util.TimeHelper;
+
+import java.time.LocalDate;
+import java.util.List;
+
 /**
  * @program: Algorithms
  * @description:
@@ -6,7 +11,12 @@
  **/
 public class Test {
     public static void main(String[] args) {
-        System.out.println();
+
+
+        List<LocalDate> thatDayList = TimeHelper.listLocalDateOfTimePageReqByDay(LocalDate.of(2021, 10, 5), LocalDate.of(2021, 10, 5), 366, 0);
+        System.out.println(thatDayList.toString());
+
+
     }
 
 }
