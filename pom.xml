@@ -1,8 +1,54 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>algorithms</groupId>
-  <artifactId>algorithms</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>algorithms</groupId>
+    <artifactId>algorithms</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>Algorithms</name>
+
+    <!-- 属性管理 -->
+    <properties>
+        <junit.version>4.13.1</junit.version>
+        <mockito.version>3.3.3</mockito.version>
+        <powermock.version>2.0.9</powermock.version>
+    </properties>
+
+    <!-- 依赖管理 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.schedulerx</groupId>
+            <artifactId>schedulerx2-worker</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+    </dependencies>
+
+    <!-- 构建管理 -->
     <build>
         <plugins>
             <plugin>
@@ -15,18 +61,4 @@
             </plugin>
         </plugins>
     </build>
-    <name>Algorithms</name>
-
-      <dependencies>
-          <dependency>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>1.16.10</version>
-          </dependency>
-          <dependency>
-              <groupId>cn.hutool</groupId>
-              <artifactId>hutool-all</artifactId>
-              <version>5.7.14</version>
-          </dependency>
-      </dependencies>
 </project>
